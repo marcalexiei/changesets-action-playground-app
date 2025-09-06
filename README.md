@@ -1,11 +1,14 @@
 # `changesets-action-playground-app`
 
-Improved version of [changesets-action-playground-pat](https://github.com/marcalexiei/changesets-action-playground-pat)
+This repository is an improved version of [changesets-action-playground-pat](https://github.com/marcalexiei/changesets-action-playground-pat).
 
-## Improvements
+## Overview
 
-Rather than relying on a Personal Access token this repository relies on a GitHub App that allows release workflow to use [create-github-app-token Action](https://github.com/marketplace/actions/create-github-app-token) to create a token on demand.
+The main difference is how authentication is handled.  
+Instead of relying on a Personal Access Token (PAT), this project uses a GitHub App.  
+
+By doing so, the release workflow can generate tokens on demand using the [create-github-app-token Action](https://github.com/marketplace/actions/create-github-app-token), providing a more secure and maintainable setup.
 
 ## References
 
-- <https://github.com/marketplace/actions/create-github-app-token#configure-git-cli-for-an-apps-bot-user>
+- [Configure Git CLI for a GitHub App’s bot user](https://github.com/marketplace/actions/create-github-app-token#configure-git-cli-for-an-apps-bot-user)
