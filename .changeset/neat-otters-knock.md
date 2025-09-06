@@ -2,4 +2,4 @@
 "changeset-playground": patch
 ---
 
-docs: add README
+feat: first try with app
