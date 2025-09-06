@@ -1,5 +1,11 @@
 # changeset-playground
 
+## 1.0.2
+
+### Patch Changes
+
+- ad7632f: feat: first try with app
+
 ## 1.0.1
 
 ### Patch Changes
