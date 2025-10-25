@@ -4,10 +4,20 @@ This repository is an improved version of [changesets-action-playground-pat](htt
 
 ## Overview
 
-The main difference is how authentication is handled.  
-Instead of relying on a Personal Access Token (PAT), this project uses a GitHub App.  
+The main difference is how authentication is handled.
+Instead of relying on a Personal Access Token (PAT), this project uses a GitHub App.
 
 By doing so, the release workflow can generate tokens on demand using the [create-github-app-token Action](https://github.com/marketplace/actions/create-github-app-token), providing a more secure and maintainable setup.
+
+## Reason
+
+When you use a repository’s `GITHUB_TOKEN` to perform actions,
+any events triggered by that token, except for `workflow_dispatch` and `repository_dispatch`, will **not** start a new workflow run.
+
+This behavior prevents recursive workflow executions.
+
+For example, if a workflow uses the repository’s `GITHUB_TOKEN` to push code changes,
+it will not trigger another workflow run even if the repository has a workflow configured to run on `push` events.
 
 ## Usage
 
@@ -65,9 +75,10 @@ By doing so, the release workflow can generate tokens on demand using the [creat
        setupGitUser: false
      env:
        GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
-       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+       # ...
    ```
 
 ## References
 
+- [When `GITHUB_TOKEN` triggers workflow runs](https://docs.github.com/en/actions/concepts/security/github_token#when-github_token-triggers-workflow-runs)
 - [Configure Git CLI for a GitHub App’s bot user](https://github.com/marketplace/actions/create-github-app-token#configure-git-cli-for-an-apps-bot-user)
