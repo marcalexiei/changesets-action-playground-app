@@ -2,16 +2,21 @@
   "name": "changeset-playground",
   "version": "1.0.2",
   "description": "",
+  "private": true,
   "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.15.1",
   "scripts": {
+    "format": "prettier . --check",
+    "format:fix": "prettier . --write",
     "release": "echo \"Release!\""
   },
-  "dependencies": {
+  "devDependencies": {
     "@changesets/changelog-github": "0.5.1",
-    "@changesets/cli": "2.29.6"
+    "@changesets/cli": "2.29.6",
+    "@marcalexiei/prettier-config": "1.1.4",
+    "prettier": "3.6.2"
   }
 }

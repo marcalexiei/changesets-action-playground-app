@@ -21,7 +21,6 @@ jobs:
     permissions:
       contents: write
       pull-requests: write
-      id-token: write # added for provenance
 
     steps:
       # https://github.com/marketplace/actions/create-github-app-token#configure-git-cli-for-an-apps-bot-user
@@ -61,5 +60,3 @@ jobs:
           setupGitUser: false
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NPM_CONFIG_PROVENANCE: true
