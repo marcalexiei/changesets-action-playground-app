@@ -21,15 +21,32 @@ it will not trigger another workflow run even if the repository has a workflow c
 
 ## Usage
 
-### Configuration
+### Create a GitHub App
 
-1. Install the app in the repository
-2. Set the app id as GitHub actions `RELEASE_HELPER_APP_ID` variable
-3. Set the app private key as GitHub actions `RELEASE_HELPER_PRIVATE_KEY` secret
+1. Create a new GitHub App.
 
-### Implementation
+2. Configure the following permissions:
+   - **Contents** → Read & Write
+   - **Metadata** → Read-only (automatically granted when modifying contents, listed here for completeness)
+   - **Pull requests** → Read & Write
 
-1. Add the following steps before checkout action call
+3. Fill all other required information.\
+   No callback URl or webhook are required to be active.
+
+4. Generate a new private key and store it securely (for example, in a password manager).
+
+---
+
+### Configure the App in the Repository
+
+1. Install the GitHub App on the target repository.
+2. Add the following to your GitHub Actions settings:
+   - **Variable:** `RELEASE_HELPER_APP_ID` → set to the App ID.
+   - **Secret:** `RELEASE_HELPER_PRIVATE_KEY` → set to the App’s private key.
+
+### Use app in the workflows
+
+1. Add the following steps before checkout action call:
 
    ```yml
    - name: Create access token for GitHub App
@@ -51,7 +68,7 @@ it will not trigger another workflow run even if the repository has a workflow c
          git config --global user.email '${{ steps.app-user-id.outputs.user-id }}+${{ steps.app-token.outputs.app-slug }}[bot]@users.noreply.github.com'
    ```
 
-2. Ensure that `actions/checkout` is called with `persist-credentials: false`
+2. Ensure that `actions/checkout` is called with `persist-credentials: false`:
 
    ```yml
    - name: Checkout
@@ -60,9 +77,9 @@ it will not trigger another workflow run even if the repository has a workflow c
        persist-credentials: false
    ```
 
-3. Changeset action must be called with `setupGitUser: false`
+3. Changeset action must be called with `setupGitUser: false`.
 
-   As `GITHUB_TOKEN` use `steps.app-token.outputs.token`
+   As `GITHUB_TOKEN` use `steps.app-token.outputs.token`.
 
    ```yml
    - name: Create Release Pull Request or Publish to npm
