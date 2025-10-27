@@ -8,6 +8,7 @@
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.15.1",
+  "prettier": "@marcalexiei/prettier-config",
   "scripts": {
     "format": "prettier . --check",
     "format:fix": "prettier . --write",

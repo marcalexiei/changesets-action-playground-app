@@ -86,9 +86,9 @@ it will not trigger another workflow run even if the repository has a workflow c
      id: changesets
      uses: changesets/action@v1
      with:
-       commit: "chore: release"
-       title: "chore: release"
-       publish: "pnpm release"
+       commit: 'chore: release'
+       title: 'chore: release'
+       publish: 'pnpm release'
        setupGitUser: false
      env:
        GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}

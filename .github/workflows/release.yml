@@ -5,8 +5,8 @@ on:
     branches:
       - main
     paths:
-      - ".changeset/**"
-      - ".github/workflows/release.yml"
+      - '.changeset/**'
+      - '.github/workflows/release.yml'
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
@@ -54,9 +54,9 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          commit: "chore: release"
-          title: "chore: release"
-          publish: "pnpm release"
+          commit: 'chore: release'
+          title: 'chore: release'
+          publish: 'pnpm release'
           setupGitUser: false
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
