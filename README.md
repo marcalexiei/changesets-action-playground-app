@@ -19,6 +19,9 @@ This behavior prevents recursive workflow executions.
 For example, if a workflow uses the repository’s `GITHUB_TOKEN` to push code changes,
 it will not trigger another workflow run even if the repository has a workflow configured to run on `push` events.
 
+According to this, marking a GitHub Actions workflow as required in [rulesets](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets) becomes tricky:\
+you can't merge PRs opened by GitHub Actions bot without a bypass rule.
+
 ## Usage
 
 ### Create a GitHub App
