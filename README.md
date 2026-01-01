@@ -102,3 +102,11 @@ you can't merge PRs opened by GitHub Actions bot without a bypass rule.
 
 - [When `GITHUB_TOKEN` triggers workflow runs](https://docs.github.com/en/actions/concepts/security/github_token#when-github_token-triggers-workflow-runs)
 - [Configure Git CLI for a GitHub App’s bot user](https://github.com/marketplace/actions/create-github-app-token#configure-git-cli-for-an-apps-bot-user)
+
+## Usage examples
+
+- <https://github.com/marcalexiei/biome-config>
+- <https://github.com/marcalexiei/eslint-plugin-zod-x>
+- <https://github.com/marcalexiei/eslint-plugin-react-import>
+- <https://github.com/marcalexiei/eslint-config>
+- <https://github.com/marcalexiei/prettier-config>
