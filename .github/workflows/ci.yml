@@ -33,6 +33,9 @@ jobs:
       - name: Format
         run: pnpm run format:check
 
+      - name: Lint md files
+        run: pnpm run lint:md
+
   ci-ok:
     name: CI OK
     runs-on: ubuntu-latest
