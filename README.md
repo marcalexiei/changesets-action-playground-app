@@ -53,10 +53,10 @@ you can't merge PRs opened by GitHub Actions bot without a bypass rule.
 
    ```yml
    - name: Create access token for GitHub App
-     uses: actions/create-github-app-token@v2
+     uses: actions/create-github-app-token@v3
      id: app-token
      with:
-      app-id: ${{ vars.RELEASE_HELPER_APP_ID }}
+      client-id: ${{ vars.RELEASE_HELPER_APP_ID }}
       private-key: ${{ secrets.RELEASE_HELPER_PRIVATE_KEY }}
 
    - name: Get GitHub App User ID
@@ -110,3 +110,8 @@ you can't merge PRs opened by GitHub Actions bot without a bypass rule.
 - <https://github.com/marcalexiei/eslint-plugin-react-import>
 - <https://github.com/marcalexiei/eslint-config>
 - <https://github.com/marcalexiei/prettier-config>
+- <https://github.com/marcalexiei/void-0-configs>
+
+## Ready to use action
+
+- <https://github.com/marcalexiei/github-actions#setup-node-and-pnpm>

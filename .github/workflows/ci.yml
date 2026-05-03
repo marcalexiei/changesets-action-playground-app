@@ -31,7 +31,7 @@ jobs:
         uses: ./.github/actions/install-dependencies
 
       - name: Format
-        run: pnpm run format
+        run: pnpm run format:check
 
   ci-ok:
     name: CI OK
